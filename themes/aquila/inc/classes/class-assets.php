@@ -33,8 +33,8 @@ class Assets {
     wp_register_style( 'style', get_stylesheet_uri(), [], filemtime( AQUILA_DIR_PATH . '/style.css' ) );
     wp_register_style( 'bootstrap', AQUILA_DIR_URI . '/assets/src/library/css/bootstrap.min.css', [], false );
     // Enqueue Styles
-    wp_enqueue_style('style');
     wp_enqueue_style('bootstrap');
+    wp_enqueue_style('style');
   }
 
   public function register_scripts(){
