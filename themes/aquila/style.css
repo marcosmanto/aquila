@@ -18,3 +18,24 @@ Aquila Theme, (C) 2021 WordPress.org
 Aquila Theme is distributed under the terms of the GNU GPL.
 */
 
+img {
+  width: 100%;
+  height: auto;
+}
+
+time:not(.published) {
+  display: none;
+}
+
+.nav-item:hover .dropdown-menu:not(.show) {
+  display: block;
+}
+
+.dropdown-menu {
+  top: 30px;
+}
+
+.page-numbers.current > span {
+  background-color:#17a2b8;
+  color:#fff;
+}

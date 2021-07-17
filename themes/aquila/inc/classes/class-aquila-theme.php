@@ -17,6 +17,7 @@ class AQUILA_THEME {
     // load classes
     Assets::get_instance();
 		Menus::get_instance();
+		Meta_Boxes::get_instance();
 
     $this->setup_hooks();
   }
@@ -55,6 +56,8 @@ class AQUILA_THEME {
 				'default-repeat' => 'no-repeat',
 			]
 		);
+
+		add_image_size( 'featured-thumbnail', 350, 233, true);
 
 		add_theme_support( 'post-thumbnails' );
 

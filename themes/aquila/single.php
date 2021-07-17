@@ -1,6 +1,6 @@
 <?php
 /**
- * Main template file.
+ * Single post template file.
  *
  * @package Aquila
  */
@@ -26,34 +26,13 @@
 						</header>
 						<?php
 					}
+
+          while( have_posts() ) : the_post();
+            get_template_part('template-parts/content');
+          endwhile;
+
 					?>
 
-					<div class="row">
-						<?php
-						$index         = 0;
-						$no_of_columns = 3;
-
-						while ( have_posts() ) : the_post();
-
-							if ( 0 === $index % $no_of_columns ) {
-								?>
-								<div class="col-lg-4 col-md-6 col-sm-12">
-								<?php
-							}
-
-							get_template_part( 'template-parts/content' );
-
-							$index ++;
-
-							if ( 0 !== $index && 0 === $index % $no_of_columns || $index === $wp_query->post_count ) {
-								?>
-								</div>
-								<?php
-							}
-
-						endwhile;
-						?>
-					</div>
 				</div>
 			<?php
 
@@ -63,7 +42,14 @@
 
 			endif;
 
-			aquila_pagination();
+			//aquila_pagination();
+      $prev_link = get_previous_post_link();
+      $next_link = get_next_post_link();
+      echo <<<EOT
+          <div>$prev_link</div>
+          <div>$next_link</div>
+          EOT;
+
 			?>
 		</main>
   </main>
