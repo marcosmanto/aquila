@@ -1,0 +1,12 @@
+
+/* stylelint-disable */
+/* Nav item */
+.nav-item:hover .dropdown-menu:not(.show) {
+  display: block;
+}
+
+.dropdown-menu {
+  top: 30px;
+}
+
+/* stylelint-enable */

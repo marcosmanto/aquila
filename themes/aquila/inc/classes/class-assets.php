@@ -30,11 +30,14 @@ class Assets {
 
   public function register_styles() {
     // Register Styles
-    wp_register_style( 'style', get_stylesheet_uri(), [], filemtime( AQUILA_DIR_PATH . '/style.css' ) );
-    wp_register_style( 'bootstrap', AQUILA_DIR_URI . '/assets/src/library/css/bootstrap.min.css', [], false );
+    wp_register_style( 'bootstrap', AQUILA_DIR_URI . '/assets/src/library/css/bootstrap.min.css', [], false, 'all' );
+    wp_register_style('main', AQUILA_BUILD_CSS_URI . '/main.css', ['bootstrap'], filemtime(AQUILA_BUILD_CSS_DIR_PATH . '/main.css'), false, 'all');
+    // wp_register_style( 'fonts', AQUILA_DIR_URI . '/assets/src/library/fonts/fonts.css', [], false, 'all');
+
     // Enqueue Styles
     wp_enqueue_style('bootstrap');
-    wp_enqueue_style('style');
+    // wp_enqueue_style('fonts');
+    wp_enqueue_style('main');
   }
 
   public function register_scripts(){
