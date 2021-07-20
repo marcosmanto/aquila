@@ -18,6 +18,7 @@ class AQUILA_THEME {
     Assets::get_instance();
 		Menus::get_instance();
 		Meta_Boxes::get_instance();
+		Sidebars::get_instance();
 
     $this->setup_hooks();
   }
@@ -84,8 +85,8 @@ class AQUILA_THEME {
 
 		add_theme_support('align-wide');
 
-		// add_theme_support( 'editor-styles' );
-		// add_editor_style( 'assets/build/css/editor.css' );
+		add_theme_support( 'editor-styles' );
+		add_editor_style( 'assets/build/css/editor.css' );
 
 		global $content_width;
 		if ( ! isset( $content_width ) ) {

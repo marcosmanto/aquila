@@ -31,3 +31,4 @@ uploads
 plugins/wordpress-importer
 themes/twentytwenty
 languages/
+build/
