@@ -1,15 +1,32 @@
-
 <?php
 /**
- * Page template
+ * Single post template file.
  *
  * @package Aquila
  */
 
-get_header();
+  get_header();
 
 ?>
 
-<div>Single Page</div>
+<div id="primary">
 
-<?php get_footer(); ?>
+  <main id="main" class="site-main" role="main">
+    <div class="row">
+      <div class="col-sm-12">
+          <?php
+
+        while( have_posts() ) : the_post();
+          get_template_part( 'template-parts/components/blog/entry-header' );
+          the_content();
+        endwhile;
+
+        ?>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<?php
+get_footer();

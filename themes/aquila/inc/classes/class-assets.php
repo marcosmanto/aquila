@@ -23,9 +23,10 @@ class Assets {
     /**
      * Actions
      */
+    //add_action('wp_enqueue_scripts', [$this, 'dequeue_assets']);
     add_action( 'wp_enqueue_scripts', [$this, 'register_styles'] );
     add_action('wp_enqueue_scripts', [$this, 'register_scripts']);
-
+    add_action('admin_enqueue_scripts', [$this, 'register_admin_styles']);
   }
 
   public function register_styles() {
@@ -35,9 +36,16 @@ class Assets {
     // wp_register_style( 'fonts', AQUILA_DIR_URI . '/assets/src/library/fonts/fonts.css', [], false, 'all');
 
     // Enqueue Styles
+		/* Admin CSS */
+		wp_enqueue_style('editor-sidebar', AQUILA_BUILD_CSS_URI . '/editor-sidebar.css' );
     wp_enqueue_style('bootstrap');
     // wp_enqueue_style('fonts');
     wp_enqueue_style('main');
+  }
+
+  public function register_admin_styles() {
+		/* Admin CSS */
+		wp_enqueue_style('editor-sidebar', AQUILA_BUILD_CSS_URI . '/editor-sidebar.css' );
   }
 
   public function register_scripts(){
@@ -47,6 +55,13 @@ class Assets {
     // Enqueue Scripts
     wp_enqueue_script('main');
     wp_enqueue_script('bootstrap');
+  }
+
+  public function dequeue_assets() {
+    //Remove Gutenberg Block Library CSS from loading on the frontend
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wp-block-style');
   }
 
 }

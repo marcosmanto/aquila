@@ -5,7 +5,6 @@
  * @package Aquila
  */
 
-  get_header();
 
 ?>
 

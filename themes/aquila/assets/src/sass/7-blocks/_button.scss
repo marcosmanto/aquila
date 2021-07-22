@@ -41,4 +41,21 @@
 	}
 }
 
+.wp-block-button {
+
+	.wp-block-button__link {
+		border-radius: 0;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 18px;
+		padding: 20px 24px;
+
+		&:hover {
+			background: transparentize($color: orange, $amount: .75);
+			text-decoration: none;
+		}
+
+	}
+}
+
 /* stylelint-enable */
